@@ -6,12 +6,18 @@
             
             $respuesta = Registro:: ObtenerDatosPorId($identificador);
             
+            $contenedor = array();
+
             if($respuesta){
-                echo json_encode($respuesta);
+                $contenedor["resultado"] = "CC";
+                $contenedor["datos"] = $respuesta;
+                echo json_encode($contenedor);
             }else{
                 echo json_encode(array('resultado' => 'El usuario no existe'));
             }
           
+        }else{
+            echo json_encode(array('resultado' => 'Falta el identificador'));
         }
         
         

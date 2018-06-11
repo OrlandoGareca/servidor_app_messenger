@@ -28,7 +28,7 @@
 
 				$resultado->execute(array($id));
 
-				$tabla = $resultado->fetchAll(PDO::FETCH_ASSOC);
+				$tabla = $resultado->fetch(PDO::FETCH_ASSOC);
 
 				return $tabla;	
 			}catch(PDOException $e){
@@ -37,6 +37,17 @@
 			}
 				
 
+		}
+		public static function InsertarNuevoDato($id,$password){
+			$consultar = "INSERT INTO Login(id,Password) VALUES(?,?)";
+			try{
+				$resultado = Database::getInstance()->getDb()->prepare($consultar);
+			
+				return $resultado->Execute(array($id,$password));
+
+			}catch(PDOException $e){
+				return false;
+			}
 		}
 
 	}
