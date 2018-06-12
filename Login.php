@@ -49,7 +49,18 @@
 				return false;
 			}
 		}
-
+		public static function ActualizarDatos($id,$password){
+			if(self::ObtenerDatosPorId($id)){
+				$consultar = "UPDATE Login SET Password=? WHERE id=?";
+			$resultado = Database::getInstance()->getDb()->prepare($consultar);
+			return $resultado->execute(array($password,$id));
+			}else{
+				return false;
+			
+			}
+				
+			
+		}
 	}
 
 ?>

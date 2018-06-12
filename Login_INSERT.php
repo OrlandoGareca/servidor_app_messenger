@@ -1,5 +1,5 @@
 <?php
-    require 'Login.php';
+    require 'Logi n.php';
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $datos = json_decode(file_get_contents("php://input"),true);
